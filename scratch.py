@@ -199,7 +199,8 @@ while True:
     for i in range(len(scores)):
         if ((scores[i] > min_conf_threshold) and (scores[i] <= 1.0)):
             if (mode == 'headless'):
-                print('{:08.6f}: {}'.format(float(scores[i]), classes[i]))
+                object_name = labels[int(classes[i])]
+                print('{:08.6f}: {}'.format(float(scores[i]), object_name))
             else:
                 # Get bounding box coordinates and draw box
                 # Interpreter can return coordinates that are outside of image dimensions, need to force them to be within image using max() and min()
